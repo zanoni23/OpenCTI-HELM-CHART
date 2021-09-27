@@ -32,11 +32,11 @@ spec:
             - name: CVE_HISTORY_DATA_FEED
               value: {{ .Values.CONNECTOR_CVE_HISTORY_DATA_FEED | quote }}
             - name: CVE_INTERVAL
-              value: {{ .Values.CONNECTOR_CVE_INTERVAL | quote }}            
+              value: {{ .Values.CONNECTOR_CVE_INTERVAL | quote }}
             - name: CONNECTOR_NAME
               value: "Common Vulnerabilities and Exposures"
             - name: CONNECTOR_SCOPE
-              value: "identity,vulnerability"
+              value: {{ .Values.CONNECTOR_CVE_CONNECTOR_SCOPE | quote }}
             - name: CONNECTOR_TYPE
               value: EXTERNAL_IMPORT
             - name: OPENCTI_TOKEN

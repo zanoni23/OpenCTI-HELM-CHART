@@ -32,11 +32,11 @@ spec:
             - name: CONFIG_GEOGRAPHY_FILE_URL
               value: {{ .Values.CONNECTOR_OPENCTI_CONFIG_GEOGRAPHY_FILE_URL | quote }}
             - name: CONFIG_INTERVAL
-              value: {{ .Values.CONNECTOR_OPENCTI_INTERVAL | quote }}            
+              value: {{ .Values.CONNECTOR_OPENCTI_INTERVAL | quote }}
             - name: CONNECTOR_NAME
               value: "OpenCTI"
             - name: CONNECTOR_SCOPE
-              value: "marking-definition,identity,location"
+              value: {{ .Values.CONNECTOR_OPENCTI_CONNECTOR_SCOPE | quote }}
             - name: CONNECTOR_TYPE
               value: EXTERNAL_IMPORT
             - name: OPENCTI_TOKEN

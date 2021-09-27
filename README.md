@@ -66,6 +66,7 @@ CONNECTOR_ONLY_CONTEXTUAL: "true"
 # CONNECTOR OPENCTI
 CONNECTOR_OPENCTI_ENABLED: false
 CONNECTOR_OPENCTI_UUID: "891b04d2-6de2-45dd-9bc8-110ef396b1bc"
+CONNECTOR_OPENCTI_CONNECTOR_SCOPE: "marking-definition,identity,location"
 CONNECTOR_OPENCTI_CONNECTOR_UPDATE_EXISTING_DATA: "true"
 CONNECTOR_OPENCTI_CONFIG_SECTORS_FILE_URL: "https://raw.githubusercontent.com/OpenCTI-Platform/datasets/master/data/sectors.json"
 CONNECTOR_OPENCTI_CONFIG_GEOGRAPHY_FILE_URL: "https://raw.githubusercontent.com/OpenCTI-Platform/datasets/master/data/geography.json"
@@ -75,6 +76,7 @@ CONNECTOR_OPENCTI_INTERVAL: "7"
 # CONNECTOR CVE
 CONNECTOR_CVE_ENABLED: false
 CONNECTOR_CVE_UUID: "891b04d2-6de2-45dd-9bc8-110ef396b1bc"
+CONNECTOR_CVE_CONNECTOR_SCOPE: "identity,vulnerability"
 CONNECTOR_CVE_CONNECTOR_UPDATE_EXISTING_DATA: "true"
 CONNECTOR_CVE_NVD_DATA_FEED: "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz"
 CONNECTOR_CVE_HISTORY_DATA_FEED: "https://nvd.nist.gov/feeds/json/cve/1.1/"
@@ -102,6 +104,7 @@ CONNECTOR_ALIENVAULT_INTERVAL_SEC: "1800"
 # CONNECTOR MITRE
 CONNECTOR_MITRE_ENABLED: false
 CONNECTOR_MITRE_UUID: "2ee50a39-3210-40a7-a4e7-c062fa20b636"
+CONNECTOR_MITRE_CCONNECTOR_SCOPE: "marking-definition,identity,attack-pattern,course-of-action,intrusion-set,campaign,malware,tool,report,external-reference-as-report"
 CONNECTOR_MITRE_CONNECTOR_UPDATE_EXISTING_DATA: "true"
 CONNECTOR_MITRE_ENTERPRISE_FILE_URL: "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json"
 CONNECTOR_MITRE_PRE_ATTACK_FILE_URL: "https://raw.githubusercontent.com/mitre/cti/master/pre-attack/pre-attack.json"
@@ -157,6 +160,7 @@ TAXII_SERVERS:
   - NAME: taxi1
     CONFIDENCE_LEVEL: "15"
     CONNECTOR_UUID: "83d7be21-1640-476b-98dd-a27ceb510f2c"
+    CONNECTOR_SCOPE: "ipv4-addr,ipv6-addr,vulnerability,domain,url,file-sha256,file-md5,file-sha1"
     UPDATE_EXISTING_DATA: "true"
     TAXII2_DISCOVERY_URL: ""
     TAXII2_USERNAME: ""
@@ -169,6 +173,7 @@ TAXII_SERVERS:
   - NAME: taxi2
     CONFIDENCE_LEVEL: "15"
     CONNECTOR_UUID: "b7cda4dc-68f8-4172-8fc6-14752c65c607"
+    CONNECTOR_SCOPE: "ipv4-addr,ipv6-addr,vulnerability,domain,url,file-sha256,file-md5,file-sha1"
     UPDATE_EXISTING_DATA: "true"
     TAXII2_DISCOVERY_URL: ""
     TAXII2_USERNAME: ""

@@ -38,7 +38,7 @@ spec:
             - name: CONNECTOR_NAME
               value: "MITRE ATT&CK"
             - name: CONNECTOR_SCOPE
-              value: "marking-definition,identity,attack-pattern,course-of-action,intrusion-set,campaign,malware,tool,report,external-reference-as-report"
+              value: {{ .Values.CONNECTOR_MITRE_CCONNECTOR_SCOPE | quote }}
             - name: CONNECTOR_TYPE
               value: EXTERNAL_IMPORT
             - name: OPENCTI_TOKEN

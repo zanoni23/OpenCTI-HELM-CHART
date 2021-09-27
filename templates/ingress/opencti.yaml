@@ -13,6 +13,9 @@ spec:
       http:
         paths:
         - path: /
+          pathType: Prefix
           backend:
-            serviceName: {{ .Release.Name }}-opencti
-            servicePort: 8080
+            service:
+              name: {{ .Release.Name }}-opencti
+              port:
+                number: 8080

@@ -11,6 +11,12 @@ This is a Helm chart for OpenCTI
 # NGINX INGRESS OPTIONS
 OPENCTI_INGRESS_HOST: ""
 OPENCTI_TLS_SECRET: ""
+# optional annotations. eg.
+# OPENCTI_INGRESS_ANNOTATIONS: 
+#   alb.ingress.kubernetes.io/target-type: ip
+
+# Optional Ingress class if there are multipe or special Ingress Controllers
+OPENCTI_INGRESS_CLASS: ""
 
 HA_REPLICAS: 1
 WORKER_REPLICAS: 3

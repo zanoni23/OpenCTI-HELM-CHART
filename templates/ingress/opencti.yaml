@@ -3,7 +3,14 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}-ir
   namespace: {{ .Release.Namespace }}
+{{- with .Values.OPENCTI_INGRESS_ANNOTATIONS }}
+  annotations:
+  {{- toYaml . | nindent 4 }}
+{{- end }}
 spec:
+{{- if .Values.OPENCTI_INGRESS_CLASS }}
+  ingressClassName: {{ .Values.OPENCTI_INGRESS_CLASS }}
+{{- end }}
   tls:
     - hosts:
       - {{ .Values.OPENCTI_INGRESS_HOST }}

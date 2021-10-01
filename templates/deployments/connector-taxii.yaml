@@ -1,5 +1,6 @@
 {{ if .Values.CONNECTOR_TAXII_ENABLED }}
 {{- range .Values.TAXII_SERVERS }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

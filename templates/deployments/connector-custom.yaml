@@ -1,0 +1,49 @@
+{{ if .Values.CONNECTOR_CUSTOM_ENABLED }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-connector-{{ .Values.CONNECTOR_CUSTOM_NAME }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+   app: {{ .Release.Name }}-connector-{{ .Values.CONNECTOR_CUSTOM_NAME }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: {{ .Release.Name }}-connector-{{ .Values.CONNECTOR_CUSTOM_NAME }}
+  strategy: {}
+  template:
+    metadata:
+      labels:
+       app: {{ .Release.Name }}-connector-{{ .Values.CONNECTOR_CUSTOM_NAME }}
+    spec:
+      containers:
+        - env:
+            - name: CONNECTOR_ID
+              value: {{ .Values.CONNECTOR_CUSTOM_UUID | quote }}
+            - name: CONNECTOR_LOG_LEVEL
+              value: {{ .Values.LOG_LEVEL }}
+{{- with .Values.CONNECTOR_CUSTOM_ENV }}
+  {{- toYaml . | nindent 12 }}
+{{- end }}          
+            - name: CONNECTOR_NAME
+              value: {{ .Values.CONNECTOR_CUSTOM_NAME }}
+            - name: CONNECTOR_SCOPE
+              value: {{ .Values.CONNECTOR_CUSTOM_SCOPE }}
+            - name: CONNECTOR_TYPE
+              value: {{ .Values.CONNECTOR_CUSTOM_TYPE }}
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.OPENCTI_TOKEN }}
+            - name: OPENCTI_URL
+              value: "http://{{ .Release.Name }}-opencti:8080"
+          image: {{ .Values.CONNECTOR_CUSTOM_IMAGE }}
+          name: connector-{{ .Values.CONNECTOR_CUSTOM_NAME }}
+          resources: 
+            limits:
+              memory: 256Mi
+              cpu: "250m"
+            requests:
+              memory: 56Mi
+              cpu: "100m"
+      restartPolicy: Always
+{{ end }}
